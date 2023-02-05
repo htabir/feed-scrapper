@@ -1,6 +1,7 @@
 from time import sleep
 from bs4 import BeautifulSoup
 import csv
+import os
 
 import requests
 import json
@@ -111,5 +112,13 @@ def scrap_fed():
             sleep(5)
 
 
+def check_folder_exists():
+    if not os.path.exists('data'):
+        os.makedirs('data')
+
+
 if __name__ == '__main__':
+    check_folder_exists()
     scrap_fed()
+
+
